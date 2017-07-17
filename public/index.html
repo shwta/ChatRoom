@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <link rel="stylesheet" type="text/css" href="css/chatroom.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+		<title>Chat Room</title>
+	</head>
+	<body>
+	 <div id="main">
+		 <div id="login-container">
+		 	<input id="username" type="text" placeholder="Enter your username...">
+		 	<button id="user-submit">Join the DoorDash Chat!</button>
+		 </div>
+		 <div id="messenger">
+			 <div id="chatrooms-container">
+				 <header id="user-details"></header>
+				 <ul id="rooms-list"></ul>
+				 <footer>
+				 	<button id="logout">Log out</button>
+				 </footer>
+			 </div>
+			 <div id="messenger-window">
+			 	<header id="chatroom-details"></header>
+			 	<div id="chat-window"></div>
+			 	<div id="user-message">
+			 		<input id="user-message-input" type="text" placeholder="Type a message...">
+			 		<button id="message-submit">Send</button>
+			 	</div>
+			 </div>
+		 	 
+		 </div>
+     </div>
+     <script src="js/chatroom.js"></script>
+	</body>
+</html>
