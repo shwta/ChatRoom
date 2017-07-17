@@ -43,12 +43,12 @@ router.use(function(req, res, next) {
 const database = [
   { name: 'Tea Chats', id: 0, users: ['Ryan','Nick'], messages: [{name: 'Ryan', message: 'ayyyyy', id: 'gg35545', reaction: null},{name: 'Nick', message: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', id: 'yy35578', reaction: null}]},
   { name: 'Coffee Chats', id: 1, users: ['Abdul'], messages: [{name: 'Abdul', message: 'ayy', id: 'ff35278', reaction: null}]},
-  { name: 'Analytics', id: 2, users: ['John,Brad'], messages: []},
-  { name: 'Business', id: 3, users: ['Ashley'], messages: []},
-  { name: 'Design', id: 4, users: ['Abdul,Tom,Seth'], messages: []},
-  { name: 'Engineering', id: 5, users: ['Peter, Thomas'], messages: []},
-  { name: 'HR', id: 5, users: ['George'], messages: []},
-  { name: 'Operations', id: 6, users: ['Ron, Ryan'], messages: []},
+  { name: 'Analytics', id: 2, users: [], messages: []},
+  { name: 'Business', id: 3, users: [], messages: []},
+  { name: 'Design', id: 4, users: [], messages: []},
+  { name: 'Engineering', id: 5, users: [], messages: []},
+  { name: 'HR', id: 5, users: [], messages: []},
+  { name: 'Operations', id: 6, users: [], messages: []},
   
 
 ]
