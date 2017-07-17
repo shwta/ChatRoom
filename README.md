@@ -10,6 +10,8 @@ Instructions:
 
 Installation: Install latest node and npm packages(express,socket.io,socket.io-client,shortid,body-parser).
 
+Node: Run server.js in node environment.
+
 Application's index.html : http://localhost:8080/
 
 Username : Enter a string and click submit button or press Enter to enter chatroom.
