@@ -1,11 +1,8 @@
 $(document).ready(function() {
 
     var chatRooms = {
-
         //Intialize chatrooms
-        
         init: function() {
-
             this.socket = io();
             this.eventHandlers();
             this.retrieveMessages();
@@ -21,9 +18,7 @@ $(document).ready(function() {
                 url: 'http://localhost:8080/api/rooms',
                 type: 'GET',
                 success: function(response) {
-
                     var listHtml = "";
-
                     for (var i = 0; i < response.length; i++) {
 
                         listHtml += "<li class='list-items' id='" 
@@ -154,10 +149,6 @@ $(document).ready(function() {
                     return false;
                 }
             });
-
-
-
-
         },
 
         //Retrieve messages in relatime
@@ -219,9 +210,7 @@ $(document).ready(function() {
             $("#user-message").on("keypress click", function(e) {
                 var message = $("#user-message-input").val();
                 if (message.length > 0 && ((e.type === "click" && e.target.id === "message-submit") || (e.type = "keypress" && e.keyCode === 13)))
-
                     that.postMessages(message);
-                
             });
 
             $("#logout").on("click", function() {
