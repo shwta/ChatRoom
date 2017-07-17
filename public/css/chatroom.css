@@ -54,13 +54,13 @@ input,button{
     display:none;
 }
 div#chatrooms-container {
-    min-width: 400px;
+    width: 400px;
     height: 100%;
     display: table-cell;
     background: #ff1940;
     color: white;
-    max-width: 400px;
     border: groove 5px #f9f0f0;
+    word-wrap: break-word;
 }
 
 div#messenger-window {
@@ -76,6 +76,7 @@ header#chatroom-details {
     height: 15%;
     width: 100%;
     text-align: center;
+    word-wrap: break-word;
 }
 
 
@@ -117,6 +118,9 @@ div#messenger {
 header#user-details {
     height: 15%;
     text-align: center;
+    text-overflow: ellipsis;
+    padding: 0 15px 0 15px;
+    word-wrap: break-word;
 }
 
 ul#rooms-list {
@@ -179,6 +183,7 @@ li.list-items.active {
 }
 h3.username {
     padding: 25px 0 0 0;
+    text-overflow: ellipsis;
 }
 button#logout {
     height: 44px;
