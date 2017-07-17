@@ -40,8 +40,7 @@ $(document).ready(function() {
             $("#login-container").hide("");
             var i = 0;
 
-            if (i < 60) {
-                var minuteIntervalinterval = setInterval(function() {
+            this.interval = setInterval(function() {
                     ++i;
 
                     if (i == 1)
@@ -52,8 +51,8 @@ $(document).ready(function() {
 
                         $(".online-details span").text("for " + i + " Minutes");
 
-                }, 60000);
-            }
+            }, 60000);
+          
 
 
         },
@@ -216,6 +215,7 @@ $(document).ready(function() {
             $("#logout").on("click", function() {
                 $("#messenger").hide();
                 $("#login-container").show("slow");
+                clearInterval(this.interval);
                 
             });
         }
