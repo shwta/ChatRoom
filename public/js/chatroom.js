@@ -53,14 +53,14 @@ $(document).ready(function() {
                     $(".online-details span").text("for " + i + " Minute");
                 if(i >1 && i < 60)
                     $(".online-details span").text("for " + i + " Minutes");
-                if( i===60)
-                    $(".online-details span").text("for "+ hours + "hour");
+                if( hours===1)
+                    $(".online-details span").text("for "+ hours + " hour");
                 if(i > 60  &&  i < 1440)
-                    $(".online-details span").text("for "+ hours + "hours");
-                if(i===1440)
-                    $(".online-details span").text("for "+ days +  "day");
+                    $(".online-details span").text("for "+ hours + " hours");
+                if(days===1)
+                    $(".online-details span").text("for "+ days +  " day");
                 if(i >= 1440)
-                    $(".online-details span").text("for "+ days +  "days");
+                    $(".online-details span").text("for "+ days +  " days");
 
             },60000);
 
