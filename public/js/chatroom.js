@@ -5,7 +5,7 @@ $(document).ready(function() {
         init: function() {
             this.socket = io();
             this.eventHandlers();
-            this.retrieveMessages();
+
         },
         
         //Get list of Chatrooms and load the list after submitting username
@@ -38,21 +38,31 @@ $(document).ready(function() {
             $("#user-details").html("<h3 class='username'>" + this.username + "</h3><p class='online-details'>Online <span>Now</span></p>");
             $("#messenger").show(1000).css("display", "flex");
             $("#login-container").hide("");
-            var i = 0;
+             
+        },
 
+        //setInterval to log online status
+        intervalForOnlineStatus: function(){
+
+            var i=0;
             this.interval = setInterval(function() {
-                    ++i;
+                ++i;
+                var hours = Math.floor( i / 60);
+                var days = Math.floor(i/1440);
+                if( i === 1)
+                    $(".online-details span").text("for " + i + " Minute");
+                if(i >1 && i < 60)
+                    $(".online-details span").text("for " + i + " Minutes");
+                if( i===60)
+                    $(".online-details span").text("for "+ hours + "hour");
+                if(i > 60  &&  i < 1440)
+                    $(".online-details span").text("for "+ hours + "hours");
+                if(i===1440)
+                    $(".online-details span").text("for "+ days +  "day");
+                if(i >= 1440)
+                    $(".online-details span").text("for "+ days +  "days");
 
-                    if (i == 1)
-
-                        $(".online-details span").text("for " + i + " Minute");
-
-                    else
-
-                        $(".online-details span").text("for " + i + " Minutes");
-
-            }, 60000);
-          
+            },60000);
 
 
         },
@@ -150,44 +160,40 @@ $(document).ready(function() {
             });
         },
 
-        //Retrieve messages in relatime
-        retrieveMessages: function() {
-            var that = this;
-            this.socket.on('chat message', function(msg) {
-
-                if (msg[1] === that.chatroom_id) {
+        //Retrieve messages(relatime)
+        retrieveMessages: function(msg) {
+            
+            if (msg[1] === this.chatroom_id) {
                    
                     var html = "";
+                    if (msg[0] === this.username) {
 
+                        html += "<div class='messages'><p class='message-content active'>" 
+                                + msg[2] + "</p></div>";
+                    } else{
+
+                        html += "<div class='messages'><p class='message-content'>" + msg[2] +
+                                 "</p><p class='message-user-name' >" + msg[0] + "</p></div>";
+                    }
+
+                    $('#chat-window').append(html);
                     $("#chat-window").animate({
                         scrollTop: $("#chat-window")[0].scrollHeight
                     }, 200);
 
-                    if (msg[0] === that.username) {
-
-
-                        html += "<div class='messages'><p class='message-content active'>" 
-                                + msg[2] + "</p></div>";
-                    } else
-
-                        html += "<div class='messages'><p class='message-content'>" + msg[2] +
-                                 "</p><p class='message-user-name' >" + msg[0] + "</p></div>";
-
-                    $('#chat-window').append(html);
-                }
-
-            });
+            }
         },
 
        //event handlers 
         eventHandlers: function() {
 
             var that = this;
-
+             
+            // click and keypress event for submitting username
             $("#login-container").on("keypress click", function(e) {
                 that.username = $("#username").val();
                 if (that.username.length > 0 && ((e.type === "click" && e.target.id === "user-submit") || (e.type = "keypress" && e.keyCode === 13))) {
-
+                    that.intervalForOnlineStatus();
                     that.getChatRooms();
                     that.loadUserDetails();
                     $("#username").val("");
@@ -195,6 +201,7 @@ $(document).ready(function() {
                 
             });
 
+            /// click  event for selecting chat room
             $("ul").on("click", "li", function() {
 
                 that.chatroom_id = $(this).attr('id');
@@ -206,17 +213,24 @@ $(document).ready(function() {
 
             });
 
+            // click and keypress event for posting message
             $("#user-message").on("keypress click", function(e) {
                 var message = $("#user-message-input").val();
                 if (message.length > 0 && ((e.type === "click" && e.target.id === "message-submit") || (e.type = "keypress" && e.keyCode === 13)))
                     that.postMessages(message);
             });
 
+            // click event to logout
             $("#logout").on("click", function() {
                 $("#messenger").hide();
                 $("#login-container").show("slow");
                 clearInterval(this.interval);
                 
+            });
+
+            // checking for new messages(realtime)
+            this.socket.on('chat message', function(msg) {
+                 that.retrieveMessages(msg);
             });
         }
     }
