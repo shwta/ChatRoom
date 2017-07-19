@@ -61,6 +61,7 @@ div#chatrooms-container {
     color: white;
     border: groove 5px #f9f0f0;
     word-wrap: break-word;
+    min-width:400px;
 }
 
 div#messenger-window {
@@ -144,8 +145,6 @@ li.list-items {
 p.messages {
     margin: 0;
     padding: 0;
-}
-.messages {
     overflow: hidden;
 }
 
