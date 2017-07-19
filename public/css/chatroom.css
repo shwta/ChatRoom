@@ -20,6 +20,28 @@ input,button{
     box-shadow: 5px 5px 5px rgba(60, 54, 54, 0.75);
     -webkit-appearance: none;
     outline: none;
+    font-size: 16px;body,html{
+    height:100%;
+    margin:0;
+    padding:0;
+    font-size: 20px;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    background:url("doordash.jpg") no-repeat center center fixed;
+    background-size:cover;
+}
+input,button,h3,p,ul,li{
+    border:0;
+    margin:0;
+    font-family: Helvetica;
+    padding: 0;
+}
+input,button{
+    font=size:16px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(60, 54, 54, 0.75);
+    -webkit-appearance: none;
+    outline: none;
     font-size: 16px;
     background: rgba(239, 239, 239, 0.86);
 }
@@ -62,15 +84,18 @@ div#chatrooms-container {
     border: groove 5px #f9f0f0;
     word-wrap: break-word;
     min-width:400px;
+    padding-bottom: 15px;
 }
 
 div#messenger-window {
     background: rgba(255, 255, 255, 0.86);
     height: 100%;
-    min-width: 700px;
     resize: horizontal;
     overflow:auto;
     border: groove 5px #f9f0f0;
+    padding-bottom: 15px;
+    width: 40%;
+    min-width: 350px;
 }
 
 header#chatroom-details {
@@ -78,26 +103,31 @@ header#chatroom-details {
     width: 100%;
     text-align: center;
     word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 
 #chat-window {
     background: rgba(255, 255, 255, 0.57);
     height: 75%;
-    overflow: scroll;
+    overflow-y: scroll;
+    width: 100%;
 }
 
 div#user-message {
-    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 10px 0 10px;
+    height: 10%;
 }
 
 #user-message-input{
-    height: 50px;
-    width: 90%;
+    height: 35px;
+    width: 85%;
     border: solid 1px black;
     padding: 0 10px 0 10px;
     overflow: scroll;
@@ -108,13 +138,14 @@ div#messenger {
     align-items: center;
     width: 100%;
     height: 80%;
-    min-height: 700px;
+    min-height: 400px;
 }
 #message-submit{
-    height:50px;
-    width:10%;
+    height: 35px;
+    width: 15%;
     padding: 0 5px 0 5px;
     cursor: pointer;
+    word-wrap: break-word;
 }
 header#user-details {
     height: 15%;
@@ -126,7 +157,7 @@ header#user-details {
 
 ul#rooms-list {
     height: 75%;
-    overflow: scroll;
+    overflow-y: scroll;
     margin: 0;
     padding: 0;
 }
@@ -137,7 +168,7 @@ li.list-items {
     padding: 0 10px 010px 10px;
     cursor: pointer;
     margin: 0 0 15px 0;
-    height: 85px;
+    height: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,9 +188,10 @@ p.message-content {
     background: rgba(243, 243, 243, 0.59);
     box-shadow: 5px 5px 5px #888888;
     max-width: 500px;
+    font-size: 18px;
 }
 p.message-user-name {
-    padding: 0 0 0 15px;
+    padding: 0 0 5px 15px;
     color: #888383;
 }
 p.message-content.active {
@@ -171,8 +203,8 @@ p.message-content.active {
 span.room-users::after {
     content: "," !important;
 }
-.room-users:last-child:after { 
-    content: "" !important; 
+.room-users:last-child:after {
+    content: "" !important;
 }
 .room-users.active{
     color: #ff1940;
@@ -193,9 +225,10 @@ button#logout {
 
 footer {
     text-align: center;
+    bottom: 21px;
 }
 h3.room-name {
-    padding: 35px 20px 15px 0;
+    width: 100%;
 }
 #messenger-window.disabled{
     pointer-events: none;
@@ -211,5 +244,211 @@ h3.room-name {
    -moz-animation: show 3s; /* Fx 5+ */
    -o-animation: show 3s; /* Opera 12+ */
     animation: show 3s;
-    animation-fill-mode: forwards; 
+    animation-fill-mode: forwards;
+}
+
+    background: rgba(239, 239, 239, 0.86);
+}
+#main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:100;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#username{
+    display: block;
+    height:45px;
+    width: 485px;
+}
+#user-submit{
+    height:50px;
+    width: 500px;
+    cursor:pointer;
+    background: #ff1940;
+    color: white;
+}
+#username, #user-submit{
+    height:50px;
+    margin:10px;
+    padding:8px;
+}
+#messenger{
+
+    display:none;
+}
+div#chatrooms-container {
+    width: 400px;
+    height: 100%;
+    display: table-cell;
+    background: #ff1940;
+    color: white;
+    border: groove 5px #f9f0f0;
+    word-wrap: break-word;
+    min-width:400px;
+    padding-bottom: 15px;
+}
+
+div#messenger-window {
+    background: rgba(255, 255, 255, 0.86);
+    height: 100%;
+    resize: horizontal;
+    overflow:auto;
+    border: groove 5px #f9f0f0;
+    padding-bottom: 15px;
+    width: 40%;
+    min-width: 350px;
+}
+
+header#chatroom-details {
+    height: 15%;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+#chat-window {
+    background: rgba(255, 255, 255, 0.57);
+    height: 75%;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+div#user-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 0 10px;
+    height: 10%;
+}
+
+#user-message-input{
+    height: 35px;
+    width: 85%;
+    border: solid 1px black;
+    padding: 0 10px 0 10px;
+    overflow: scroll;
+    margin: 5px;
+}
+div#messenger {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    min-height: 400px;
+}
+#message-submit{
+    height: 35px;
+    width: 15%;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+    word-wrap: break-word;
+}
+header#user-details {
+    height: 15%;
+    text-align: center;
+    text-overflow: ellipsis;
+    padding: 0 15px 0 15px;
+    word-wrap: break-word;
+}
+
+ul#rooms-list {
+    height: 75%;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+}
+
+li.list-items {
+    list-style-type: none;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 0 15px 0;
+    height: 65px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 25px 10px 0px 10px;
+}
+p.messages {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+p.message-content {
+    border: outset 2px rgba(60, 57, 57, 0.48);
+    display: inline-block;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    margin: 10px 25px 5px 25px;
+    background: rgba(243, 243, 243, 0.59);
+    box-shadow: 5px 5px 5px #888888;
+    max-width: 500px;
+    font-size: 18px;
+}
+p.message-user-name {
+    padding: 0 0 5px 15px;
+    color: #888383;
+}
+p.message-content.active {
+    background: #ff1940;
+    color: white;
+    float: right;
+    clear: both;
+}
+span.room-users::after {
+    content: "," !important;
+}
+.room-users:last-child:after {
+    content: "" !important;
+}
+.room-users.active{
+    color: #ff1940;
+}
+li.list-items.active {
+    background: rgba(144, 58, 58, 0.63);
+}
+h3.username {
+    padding: 25px 0 0 0;
+    text-overflow: ellipsis;
+}
+button#logout {
+    height: 44px;
+    cursor: pointer;
+    padding: 14px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    bottom: 21px;
+}
+h3.room-name {
+    width: 100%;
+}
+#messenger-window.disabled{
+    pointer-events: none;
+    opacity:0.8;
+}
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+#login-container {
+    opacity:0;
+    -webkit-animation: show 3s; /* Safari 4+ */
+   -moz-animation: show 3s; /* Fx 5+ */
+   -o-animation: show 3s; /* Opera 12+ */
+    animation: show 3s;
+    animation-fill-mode: forwards;
 }
