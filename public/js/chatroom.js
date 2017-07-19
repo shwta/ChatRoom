@@ -224,7 +224,7 @@ $(document).ready(function() {
             $("#logout").on("click", function() {
                 $("#messenger").hide();
                 $("#login-container").show("slow");
-                clearInterval(this.interval);
+                clearInterval(that.interval);
                 
             });
 
